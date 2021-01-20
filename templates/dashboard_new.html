@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" href="/static/main.css">
+		<script src="/static/pass_strength.js" defer></script>
+	</head>
+	<body>
+		<header>
+			Password Defender - Patryk Nowacki	
+		</header>
+		<nav>
+			<ul>
+			<li><a href="/">Strona główna</a></li>
+			{% if is_logged is not true %}
+				<li><a href="/register">Zarejestruj</a></li>
+				<li><a href="/login">Zaloguj</a></li>
+			{% endif %}
+			{% if is_logged is true %}
+				<li><a href="/dashboard">Twoje hasla</a></li>
+				<li><a href="/logout">Wyloguj</a></li>
+			{% endif %}
+			</ul>
+		</nav>
+		<form id="form" method="POST" action="/dashboard" enctype="multipart/form-data">
+			<ul id="form_list">
+				<li>
+					<input type="text" id="description" name="description" placeholder="Opis">
+				</li>
+				<li>
+					<input type="password" id="pass" name="password" placeholder="Haslo">
+				</li>
+				<li>
+					<input type="password" id="pass2" name="password2" placeholder="Powtorz haslo">
+				</li>
+				<li>
+					<input type="submit" id="submit" name="submit">
+				</li>
+				<li id="pass_info">Sila hasla: </li>
+			</ul>
+		</form>
+		<footer>
+			<ul>
+				<li><a>2020</a></li>
+			</ul>
+		</footer>
+	</body>
+</html>

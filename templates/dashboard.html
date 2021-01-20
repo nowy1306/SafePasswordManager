@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="/static/dashboard.js" defer></script>
+	</head>
+	<body>
+		<header>
+			Password Defender - Patryk Nowacki	
+		</header>
+		<nav>
+			<ul>
+			<li><a href="/">Strona główna</a></li>
+			{% if is_logged is not true %}
+				<li><a href="/register">Zarejestruj</a></li>
+				<li><a href="/login">Zaloguj</a></li>
+			{% endif %}
+			{% if is_logged is true %}
+				<li><a href="/dashboard">Twoje hasla</a></li>
+				<li><a href="/logout">Wyloguj</a></li>
+			{% endif %}
+			</ul>
+		</nav>
+		<ul>
+			<table id="tab" style="width:100%">
+			<tr>
+				<th>Opis</th>
+				<th>Haslo</th>
+			</tr>
+			{% for element in list %} 
+			<tr id={{element[0]}}>
+				<td>{{element[1]}}</td>
+				<td>{{element[2]}}</td>
+				<td><button/>Usun</td>
+				<td><button/>Odszyfruj</td>
+			</tr>
+			{% endfor %}
+			</table>
+			<button id="addButton">Dodaj</button>
+		</ul>
+		<footer>
+			<ul>
+				<li><a>2020</a></li>
+			</ul>
+		</footer>
+	</body>
+</html>

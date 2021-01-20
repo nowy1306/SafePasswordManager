@@ -1,0 +1,7 @@
+Flask==1.1.2
+bcrypt
+Flask-Session
+redis
+python-dotenv
+mysql-connector-python
+pycryptodome
